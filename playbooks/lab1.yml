@@ -1,0 +1,76 @@
+---
+- hosts: all
+  gather_facts: False
+  vars: 
+    node_host: "10.0.2.167"
+    node_name: "member1"
+    node_monitor: "/Common/icmp"
+    pool_name: "pool1"
+    pool_monitor: "/Common/http_head_f5"
+    pool_port: "8080"
+    vip_description: "foo-vip"
+    vip_destination: "10.0.2.183"
+    vip_name: "vip1"
+    vip_port: "80"
+    vip_snat: "Automap"
+    vip_all_profiles: "http"
+    vip_all_rules: "Bodgeit_Rewrite"
+    state: "present"
+
+    - name: Add a new node
+      bigip_node:
+        server: "{{ inventory_hostname }}"
+        user: "{{ username }}"
+        password: "{{ password }}"
+        node_host: "{{ host  }}"
+        node_name: "{{ name }}"
+        validate_certs: "false"
+        state: "{{ state }}"
+        node_monitors:
+          - "{{ monitor }}"
+      ddlegate_to: localhost
+
+    - name: Add a new pool
+      bigip_pool:
+        server: "{{ inventory_hostname }}"
+        user: "{{ username }}"
+        password: "{{ password }}"
+        pool_name: "{{ name }}"
+        validate_certs: "false"
+        state: "{{ state }}"
+        monitors:
+          - "{{ pool_monitor }}"
+        monitor_type: "and_list"
+      delegate_to: localhost
+
+    - name: Manage members in a pool
+      bigip_pool_member:
+        server: "{{ inventory_hostname }}"
+        user: "{{ username }}"
+        password: "{{ password }}"
+        host: "{{ node_name }}"
+        pool: "{{ pool_name }}"
+        port: "{{ pool_port }}"
+        state: "{{ state }}"
+        validate_certs: "false"
+      delegate_to: localhost
+
+    - name: Manage a VIP
+      bigip_virtual_server:
+        server: "{{ inventory_hostname }}"
+        user: "{{ username }}"
+        password: "{{ password }}"
+        description: "{{ vip_description }}"
+        destination: "{{ vip_destination }}"
+        name: "{{ vip_name }}"
+        pool: "{{ pool_name }}"
+        port: "{{ vip_port }}"
+        snat: "{{ vip_snat }}"
+        all_profiles:
+          - "{{ vip_all_profiles }}"
+        all_rules:
+          - "{{ vip_all_rules }}"
+        validate_certs: "false"
+        state: "{{ state }}"
+      delegate_to: localhost
+...
