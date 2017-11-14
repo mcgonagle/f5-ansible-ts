@@ -1,5 +1,5 @@
-# f5-ansible-guardian
-Minimal Viable Product (MVP) providing Ansible Onboarding and Operations examples for a BIG-IP hardware or virtual device.
+# f5-ansible-ts
+Materials for Tech Summit Ansible Class
 
 ## Installing Ansible
 
