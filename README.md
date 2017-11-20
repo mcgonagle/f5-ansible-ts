@@ -32,8 +32,8 @@ set cc=
 {
   "repos": [
     {
-      "name":"mcgonagle-ansible_f5",
-      "repo":"https://github.com/mcgonagle/ansible_f5.git",
+      "name":"f5-ansible-ts",
+      "repo":"https://github.com/mcgonagle/f5-ansible-ts.git",
       "branch":"master",
       "skip":false,
       "skipinstall":true
@@ -45,7 +45,7 @@ set cc=
 ## [F5 Super NetOps/DevOps Tools Container](https://hub.docker.com/r/f5devcentral/f5-super-netops-container/)
 
 ```
-docker run -p 8080:80 -p 2222:22 --rm -it -v /Users/mcgonagle/Dropbox/_F5/super-netops-ansible-container/user_repos.json:/tmp/user_repos.json -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-ansible
+docker run -p 8080:80 -p 2222:22 --rm -it -v /home/ubuntu/user_repos.json:/tmp/user_repos.json -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-ansible
 ```
 
 ## Running the Ansible Code
