@@ -1,0 +1,29 @@
+---
+- name: Add external self IP
+  bigip_selfip:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    name: "{{ net_ext_name }}"
+    address: "{{ net_ext_address }}" 
+    netmask: "{{ net_ext_netmask }}"
+    vlan: "{{ net_ext_vlan_name }}" 
+    route_domain: "{{ net_ext_route_domain }}"
+    traffic_group: "{{ net_ext_traffic_group }}"
+    validate_certs: "no"
+  delegate_to: localhost
+
+- name: Add internal self IP
+  bigip_selfip:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    name: "{{ net_int_name }}"
+    address: "{{ net_int_address }}" 
+    netmask: "{{ net_int_netmask }}"
+    vlan: "{{ net_int_vlan_name }}" 
+    route_domain: "{{ net_int_route_domain }}"
+    traffic_group: "{{ net_int_traffic_group }}"
+    validate_certs: "no"
+  delegate_to: localhost
+...

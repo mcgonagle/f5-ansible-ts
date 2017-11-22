@@ -1,3 +1,10 @@
 ---
   dns_server1: "192.168.1.100"
+  dns_server2: "192.168.1.101"
+  ntp_server1: "192.168.1.100"
+  ntp_server2: "192.168.1.101"
+  vlan_ext_name: "external"
+  vlan_ext_untagged_interface: "1.1"
+  vlan_int_name: "internal"
+  vlan_int_untagged_interface: "1.2"
 ...
