@@ -1,5 +1,5 @@
 ---
-    sys_hostname: "bigip1.lab.fqdn"
+    sys_hostname: "bigip2.lab.fqdn"
     net_int_name: "internal-self"
     net_int_address: "10.1.10.11"
     net_int_netmask: "255.255.255.0"
