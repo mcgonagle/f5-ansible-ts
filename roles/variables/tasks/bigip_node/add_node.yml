@@ -5,7 +5,7 @@
     user: "{{ username }}"
     password: "{{ password }}"
     host: "{{ add_node[host]  }}"
-    name: "{{ add[name] }}"
+    name: "{{ add_node[name] }}"
     validate_certs: "false"
     state: "{{ state }}"
     monitors:
