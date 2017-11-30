@@ -1,3 +1,26 @@
+##What makes a good variable name
+Variable names should be letters, numbers, and underscores. Variables should always start with a letter.
+*foo_port* is a great variable. *foo5* is fine too.
+
+*foo-port*, *foo port*, *foo.port* and 12 are not valid variable names.
+
+YAML also supports dictionaries which map keys to values. For instance:
+
+```
+foo:
+  field1: one
+  field2: two
+```
+
+You can reference a specific field in the dictionary using either bracket notation or dot notation:
+```
+foo['field1']
+foo['field2']
+```
+
+We will be using dictionaries in our variable files.
+
+
 ## Ansible 2.x Order of Variable Precedence
 
 * role defaults
