@@ -1,9 +1,23 @@
 # f5-ansible-ts
 Materials for Tech Summit Ansible Class
 
-## Installing Ansible
+## Introduction to Ansible
+This introductory class covers the following topics:
+  * Introduction to the Ansible Automation Tool
+  * Introduction to YAML
+  * Introduction to Ansible's variables
+  * High Availabilty with Ansible
 
-[Installing Ansible on a Mac Documentation](docs/INSTALL.md)
+## Lab Topology and environment
+We are leveraging the Introduction to Automation & Orchestration Lab
+
+The Lab Topology and Environment Information Can be found at:
+[Lab Topology and Environment](http://clouddocs.f5.com/training/community/programmability/html/class1/labinfo/labinfo.html)
+
+Directions to startup and login to the UDF demo environment can be found at:
+[F5 Unified Demo Framework(UDF)](http://clouddocs.f5.com/training/community/programmability/html/class1/labinfo/udf.html)
+
+Once launched and logged into via RDP, please do the following:
 
 ## YAML Syntax Overview
 
