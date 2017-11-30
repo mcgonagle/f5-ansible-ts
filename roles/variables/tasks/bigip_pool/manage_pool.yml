@@ -1,14 +1,14 @@
 ---
-- name: Add a new node
-  bigip_node:
+- name: Manage a pool
+  bigip_pool:
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
-    host: "{{ host  }}"
-    name: "{{ name }}"
+    name: "{{ manage_pool[name] }}"
     validate_certs: "false"
     state: "{{ state }}"
     monitors:
-      - "{{ monitor }}"
+      - "{{ manage_pool[monitor] }}"
+    monitor_type: "and_list"
   delegate_to: localhost
 ...
