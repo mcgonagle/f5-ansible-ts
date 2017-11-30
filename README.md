@@ -19,6 +19,11 @@ Directions to startup and login to the UDF demo environment can be found at:
 
 Once launched and logged into via RDP, please do the following:
 
+## Variables
+-## Ansible Variables
+ -
+ -[Ansible Variables and their Precedence](docs/VARIABLES.md)
+
 ## Useful vimrc macro for editing YaML files
 ```
 autocmd FileType yaml setlocal ai ts=2 sw=2 et colorcolumn=1,3,5,7,9,11,13 nu
