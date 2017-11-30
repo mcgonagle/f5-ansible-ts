@@ -20,9 +20,9 @@ Directions to startup and login to the UDF demo environment can be found at:
 Once launched and logged into via RDP, please do the following:
 
 ## Variables
--## Ansible Variables
- -
- -[Ansible Variables and their Precedence](docs/VARIABLES.md)
+## Ansible Variables
+
+[Ansible Variables and their Precedence](docs/VARIABLES.md)
 
 ## Useful vimrc macro for editing YaML files
 ```
