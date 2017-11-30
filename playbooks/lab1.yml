@@ -14,7 +14,6 @@
     vip_port: "80"
     vip_snat: "Automap"
     vip_all_profiles: "http"
-    vip_all_rules: "Bodgeit_Rewrite"
     state: "present"
  
   tasks:
@@ -69,8 +68,6 @@
       snat: "{{ vip_snat }}"
       all_profiles:
         - "{{ vip_all_profiles }}"
-      all_rules:
-        - "{{ vip_all_rules }}"
       validate_certs: "false"
       state: "{{ state }}"
     delegate_to: localhost
