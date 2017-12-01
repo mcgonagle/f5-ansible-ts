@@ -1,14 +1,14 @@
 ---
-- name: Add a new node
-  bigip_node:
-    server: "{{ inventory_hostname }}"
-    user: "{{ username }}"
-    password: "{{ password }}"
-    host: "{{ add_node[host]  }}"
-    name: "{{ add_node[name] }}"
-    validate_certs: "false"
-    state: "{{ state }}"
-    monitors:
-      - "{{ add_node[monitor] }}"
-  delegate_to: localhost
+  - name: Add a new node
+    bigip_node:
+      server: "{{ inventory_hostname }}"
+      user: "{{ username }}"
+      password: "{{ password }}"
+      host: "{{ add_node[host]  }}"
+      name: "{{ add_node[name] }}"
+      validate_certs: "false"
+      state: "{{ state }}"
+      monitors:
+        - "{{ add_node[monitor] }}"
+    delegate_to: localhost
 ...
