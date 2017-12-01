@@ -1,8 +1,12 @@
 ---
-add_node:
-  host: "10.0.2.167"
-  name: "defaults_member1"
-  monitor: "/Common/icmp"
+#add_node:
+#  host: "10.0.2.167"
+#  name: "defaults_member1"
+#  monitor: "/Common/icmp"
+
+add_node_host: "10.0.2.167"
+add_node_name: "defaults_member1"
+add_node_monitor: "/Common/icmp"
 
 manage_pool:
   name: "defaults_pool1"
