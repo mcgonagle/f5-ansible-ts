@@ -2,8 +2,21 @@
 ############
 #Add objects
 ############
-- include_tasks: bigip_node/add_node.yml 
-  when: state == "present"
+#- include_tasks: bigip_node/add_node.yml 
+#  when: state == "present"
+
+- name: Add a new node
+  bigip_node:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    host: "{{ add_node[host]  }}"
+    name: "{{ add_node[name] }}"
+    validate_certs: "false"
+    state: "{{ state }}"
+    monitors:
+      - "{{ add_node[monitor] }}"
+  delegate_to: localhost
 
 - include_tasks: bigip_pool/manage_pool.yml 
   when: state == "present"
