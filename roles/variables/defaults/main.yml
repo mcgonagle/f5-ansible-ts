@@ -1,7 +1,4 @@
 ---
-name: 
-  test: "test"
-
 add_node:
   host: "10.0.2.167"
   name: "defaults_member1"
