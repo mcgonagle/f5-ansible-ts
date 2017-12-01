@@ -3,10 +3,10 @@
       server: "{{ inventory_hostname }}"
       user: "{{ username }}"
       password: "{{ password }}"
-      host: "{{ add_node[host]  }}"
-      name: "{{ add_node[name] }}"
+      host: "{{ add_node_host  }}"
+      name: "{{ add_node_name }}"
       validate_certs: "false"
       state: "{{ state }}"
       monitors:
-        - "{{ add_node[monitor] }}"
+        - "{{ add_node_monitor }}"
     delegate_to: localhost
