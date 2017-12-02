@@ -51,4 +51,5 @@
       route_domain: "0"
       traffic_group: "traffic-group-local-only"
       validate_certs: "no"
+    delegate_to: localhost
 ...
