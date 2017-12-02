@@ -1,5 +1,5 @@
 ---
-add_node_host: "10.1.10.100"
+add_node_host: "10.1.10.101"
 add_node_name: "defaults_member1"
 add_node_monitor: "/Common/icmp"
 manage_pool_name: "defaults_pool1"
