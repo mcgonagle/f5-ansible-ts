@@ -12,8 +12,6 @@
     snat: "{{ manage_vip_snat }}"
     all_profiles:
       - "{{ manage_vip_all_profiles }}"
-    all_rules:
-      - "{{ manage_vip_all_rules }}"
     validate_certs: "false"
     state: "{{ state }}"
   delegate_to: localhost
