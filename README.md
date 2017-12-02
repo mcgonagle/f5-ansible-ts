@@ -46,14 +46,14 @@ docker run -p 8080:80 -p 2222:22 --rm -it -v /home/ubuntu/user_repos.json:/tmp/u
 
 ## Overview of the Ansible Environment
 
-ansible.cfg
-group_vars
-host_vars
-hosts
-password.yml - ansible-vault
-playboobooks
-roles
-run_ansible.sh
+* ansible.cfg - Ansible config file
+* group_vars - Place to store variables applicable to groups such as data centers
+* host_vars - Place to store variables specific to hosts
+* hosts - Hosts inventory list
+* password.yml - ansible-vault password file, password to unlock is "password"
+* playbooks - Ansible playbooks of "plays" for interacting with our BIG-IP systems
+* roles - More organized than playbooks
+* run_ansible.sh - Shell helper script for running playbooks
 
 
 ## YAML Overview 
