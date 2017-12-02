@@ -4,9 +4,9 @@
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
-    host: "{{ manage_members[host] }}"
-    pool: "{{ manage_members[pool] }}"
-    port: "{{ manage_members[port] }}"
+    host: "{{ manage_members_host }}"
+    pool: "{{ manage_members_pool }}"
+    port: "{{ manage_members_port }}"
     state: "{{ state }}"
     validate_certs: "false"
   delegate_to: localhost

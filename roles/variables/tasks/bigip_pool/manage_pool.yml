@@ -4,11 +4,11 @@
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
-    name: "{{ manage_pool[name] }}"
+    name: "{{ manage_pool_name }}"
     validate_certs: "false"
     state: "{{ state }}"
     monitors:
-      - "{{ manage_pool[monitor] }}"
+      - "{{ manage_pool_monitor }}"
     monitor_type: "and_list"
   delegate_to: localhost
 ...
