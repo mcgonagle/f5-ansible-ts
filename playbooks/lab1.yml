@@ -2,15 +2,15 @@
 - hosts: all
   gather_facts: False
   vars: 
-    node_host: "10.0.2.167"
-    node_name: "member1"
+    node_host: "10.1.10.100"
+    node_name: "gray1"
     node_monitor: "/Common/icmp"
-    pool_name: "pool1"
+    pool_name: "gray_pool1"
     pool_monitor: "/Common/http_head_f5"
-    pool_port: "8080"
-    vip_description: "foo-vip"
-    vip_destination: "10.0.2.183"
-    vip_name: "vip1"
+    pool_port: "8001"
+    vip_description: "gray-vip"
+    vip_destination: "10.1.20.120"
+    vip_name: "gray_vip1"
     vip_port: "80"
     vip_snat: "Automap"
     vip_all_profiles: "http"
