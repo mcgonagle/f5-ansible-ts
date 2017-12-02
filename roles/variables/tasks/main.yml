@@ -11,9 +11,6 @@
 - include_tasks: bigip_pool_member/manage_members.yml 
   when: state == "present"
 
-- include_tasks: bigip_irule/manage_irule.yml
-  when: state == "present"
-
 - include_tasks: bigip_monitor_tcp/manage_tcp_monitor.yml
   when: state == "present"
 
@@ -28,9 +25,6 @@
 #Remove objects
 ###############
 - include_tasks: bigip_virtual_server/manage_vip.yml
-  when: state == "absent"
-
-- include_tasks: bigip_irule/manage_irule.yml
   when: state == "absent"
 
 - include_tasks: bigip_monitor_tcp/manage_tcp_monitor.yml
