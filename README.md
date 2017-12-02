@@ -70,7 +70,7 @@ set cc=
 
 ## Lab 1  - Instantiate a VIP, Pool, Node with Playbook Variables
 
-## Variables Lab
+## Variables and Roles Lab
 [Ansible Variables and their Precedence](docs/VARIABLES.md)
 
 ## License
