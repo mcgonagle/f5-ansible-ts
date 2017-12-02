@@ -17,7 +17,7 @@ The Lab Topology and Environment Information Can be found at:
 Directions to startup and login to the UDF demo environment can be found at:
 [F5 Unified Demo Framework(UDF)](http://clouddocs.f5.com/training/community/programmability/html/class1/labinfo/udf.html)
 
-## Launch Docker Container
+## Launch Docker Container on the Linux Server
 
 ```
 cd /home/ubuntu; wget https://raw.githubusercontent.com/mcgonagle/f5-ansible-ts/master/misc/user_repos.json
