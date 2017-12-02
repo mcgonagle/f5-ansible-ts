@@ -25,13 +25,13 @@
       validate_certs: "no"
     delegate_to: localhost
 
-  - name: Add self IP 10.1.10.10
+  - name: Add self IP "{{ internal_vlan_ip }}"
     bigip_selfip:
       user: "{{ username }}"
       password: "{{ password }}"
       server: "{{ inventory_hostname }}"
-      name: "10.1.10.10"
-      address: "10.1.10.10"
+      name: "{{ internal_vlan_ip }}"
+      address: "{{ internal_vlan_ip }}"
       netmask: "255.255.255.0"
       vlan: "vlan10"
       route_domain: "0"
@@ -39,13 +39,13 @@
       validate_certs: "no"
     delegate_to: localhost
 
-  - name: Add self IP 10.1.20.10
+  - name: Add self IP "{{ external_vlan_ip }}"
     bigip_selfip:
       user: "{{ username }}"
       password: "{{ password }}"
       server: "{{ inventory_hostname }}"
-      name: "10.1.20.10"
-      address: "10.1.20.10"
+      name: "{{ external_vlan_ip }}"
+      address: "{{ external_vlan_ip }}"
       netmask: "255.255.255.0"
       vlan: "vlan20"
       route_domain: "0"
