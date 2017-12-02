@@ -19,6 +19,10 @@ Directions to startup and login to the UDF demo environment can be found at:
 
 ## Launch Docker Container
 
+```
+cd /home/ubuntu; wget https://raw.githubusercontent.com/mcgonagle/f5-ansible-ts/master/misc/user_repos.json
+```
+
 ## [user_repos.json](misc/user_repos.json)
 ```
 {
@@ -40,7 +44,7 @@ Directions to startup and login to the UDF demo environment can be found at:
 docker run -p 8080:80 -p 2222:22 --rm -it -v /home/ubuntu/user_repos.json:/tmp/user_repos.json -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-ansible
 ```
 
-## Overview of the Environment
+## Overview of the Ansible Environment
 
 ansible.cfg
 group_vars
@@ -67,11 +71,8 @@ set cc=
 ## Lab 1  - Instantiate a VIP, Pool, Node with Playbook Variables
 
 ## Variables Lab
-
-### Ansible Variables
 [Ansible Variables and their Precedence](docs/VARIABLES.md)
 
 ## License
 ### GNU LESSER GENERAL PUBLIC LICENSE 
 ### Version 3, 29 June 2007
-
