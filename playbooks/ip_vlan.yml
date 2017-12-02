@@ -1,0 +1,54 @@
+---
+- hosts: all
+  gather_facts: False
+
+  tasks:
+  - name: Add untagged VLAN to interface vlan10 
+    bigip_vlan:
+      user: "{{ username }}"
+      password: "{{ password }}"
+      server: "{{ inventory_hostname }}"
+      name: "vlan10"
+      untagged_interface: "1.1" 
+      state: "present"
+      validate_certs: "no"
+    delegate_to: localhost
+
+  - name: Add untagged VLAN to interface vlan20
+    bigip_vlan:
+      user: "{{ username }}"
+      password: "{{ password }}"
+      server: "{{ inventory_hostname }}"
+      name: "vlan20"
+      untagged_interface: "1.2" 
+      state: "present"
+      validate_certs: "no"
+    delegate_to: localhost
+
+  - name: Add self IP 10.1.10.10
+    bigip_selfip:
+      user: "{{ username }}"
+      password: "{{ password }}"
+      server: "{{ inventory_hostname }}"
+      name: "10.1.10.10"
+      address: "10.1.10.10"
+      netmask: "255.255.255.0"
+      vlan: "vlan10"
+      route_domain: "0"
+      traffic_group: "traffic-group-local-only"
+      validate_certs: "no"
+    delegate_to: localhost
+
+  - name: Add self IP 10.1.20.10
+    bigip_selfip:
+      user: "{{ username }}"
+      password: "{{ password }}"
+      server: "{{ inventory_hostname }}"
+      name: "10.1.20.10"
+      address: "10.1.20.10"
+      netmask: "255.255.255.0"
+      vlan: "vlan20"
+      route_domain: "0"
+      traffic_group: "traffic-group-local-only"
+      validate_certs: "no"
+...
