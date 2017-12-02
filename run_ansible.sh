@@ -27,6 +27,14 @@ while test $# -gt 0; do
                         ansible-playbook playbooks/variables.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
+                -t)
+                        ansible-playbook playbooks/operations.yml --ask-vault-pass -e @password.yml -e state="absent" -vvv 
+                        shift
+                        ;;
+                -teardown*)
+                        ansible-playbook playbooks/operations.yml --ask-vault-pass -e @password.yml -e state="absent" -vvv 
+                        shift
+                        ;;
                 *)
                         break
                         ;;
