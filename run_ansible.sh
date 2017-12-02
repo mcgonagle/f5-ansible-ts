@@ -6,6 +6,7 @@ while test $# -gt 0; do
                         echo " "
                         echo "options:"
                         echo "-h, --help                show brief help"
+                        echo "-i, --ip                  run the self ip and vlan configuration playbook"
                         echo "-1, --lab1                run the lab1 playbook"
                         echo "-v, --variables           run the operation playbook"
                         exit 0
