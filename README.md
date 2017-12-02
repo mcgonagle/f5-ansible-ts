@@ -67,12 +67,15 @@ set cc=
 ```
 
 ## Onboarding - Configuring VLAN and Self-IPs
+./run_ansible.sh -i
 
 ## Lab 1  - Instantiate a VIP, Pool, Node with Playbook Variables
+./run_ansible.sh -1
 
 ## Variables and Roles Lab
 [Ansible Variables and their Precedence](docs/VARIABLES.md)
 
+./run_ansbile -v
 ## License
 ### GNU LESSER GENERAL PUBLIC LICENSE 
 ### Version 3, 29 June 2007
