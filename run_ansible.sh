@@ -10,28 +10,43 @@ while test $# -gt 0; do
                         echo "-v, --variables           run the operation playbook"
                         exit 0
                         ;;
+                -i)
+                        shift
+                        ansible-playbook playbooks/ip_vlan.yml --ask-vault-pass -e @password.yml -vvv 
+                        shift
+                        ;;
+                --ip*)
+                        shift
+                        ansible-playbook playbooks/ip_vlan.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
+                        shift
+                        ;;
                 -1)
                         shift
                         ansible-playbook playbooks/lab1.yml --ask-vault-pass -e @password.yml -vvv 
                         shift
                         ;;
                 --lab1*)
+                        shift
                         ansible-playbook playbooks/lab1.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
                 -v)
+                        shift
                         ansible-playbook playbooks/variables.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
                 --variables*)
+                        shift
                         ansible-playbook playbooks/variables.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
                 -t)
+                        shift
                         ansible-playbook playbooks/variables.yml --ask-vault-pass -e @password.yml -e state="absent" -vvv 
                         shift
                         ;;
                 --teardown*)
+                        shift
                         ansible-playbook playbooks/variables.yml --ask-vault-pass -e @password.yml -e state="absent" -vvv 
                         shift
                         ;;
