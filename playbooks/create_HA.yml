@@ -59,8 +59,8 @@
   - name: Change device name of BIG-IP1
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - mv cm device {{ bigip1_old_name }} {{ bigip1_new_name }}
     delegate_to: localhost
@@ -68,8 +68,8 @@
   - name: Change device name of BIG-IP2
     bigip_command:
       server: "{{ bigip2_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - mv cm device {{ bigip2_old_name }} {{ bigip2_new_name }}
     delegate_to: localhost
@@ -77,8 +77,8 @@
   - name: Set config sync address on BIG-IP1
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - modify cm device {{ bigip1_new_name }} configsync-ip {{ bigip1_selfip }}
     delegate_to: localhost
@@ -86,8 +86,8 @@
   - name: Set config sync address on BIG-IP2
     bigip_command:
       server: "{{ bigip2_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - modify cm device {{ bigip2_new_name }} configsync-ip {{ bigip2_selfip }}
     delegate_to: localhost
@@ -95,8 +95,8 @@
   - name: Set unicast address on BIG-IP1
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - modify cm device {{ bigip1_new_name }} unicast-address { { ip {{ bigip1_selfip }} } { ip {{ bigip1_ip }} } }
     delegate_to: localhost
@@ -104,8 +104,8 @@
   - name: Set unicast address on BIG-IP2
     bigip_command:
       server: "{{ bigip2_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - modify cm device {{ bigip2_new_name }} unicast-address { { ip {{ bigip2_selfip }} } { ip {{ bigip2_ip }} } }
     delegate_to: localhost
@@ -113,8 +113,8 @@
   - name: Discover device for trust on BIG-IP1
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
       - modify cm trust-domain Root ca-devices add { {{ bigip2_ip }} } name {{ bigip2_new_name }} username admin password admin
     delegate_to: localhost
@@ -122,8 +122,8 @@
   - name: Check sync and failover status of BIG-IP1
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
        - show cm sync-status
       wait_for:
@@ -134,8 +134,8 @@
   - name: Check sync and failover status of BIG-IP2
     bigip_command:
       server: "{{ bigip2_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
        - show cm sync-status
       wait_for:
@@ -146,8 +146,8 @@
   - name: Create device group of type sync-failover
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
        - create cm device-group DG devices add { {{ bigip1_new_name }} {{ bigip2_new_name }} } type sync-failover network-failover enabled
     delegate_to: localhost
@@ -155,8 +155,8 @@
   - name: Perform initial sync of device-group
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
        - run cm config-sync to-group DG
     delegate_to: localhost
@@ -164,10 +164,11 @@
   - name: Confirm HA pair if formed
     bigip_command:
       server: "{{ bigip1_ip }}"
-      user: "admin"
-      password: "admin"
+      user: "{{ setup_user }}"
+      pass: "{{ setup_pass }}"
       commands:
        - show cm sync-status
       wait_for:
        - result[0] contains "high-availability"
     delegate_to: localhost
+...
