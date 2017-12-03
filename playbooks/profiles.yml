@@ -19,7 +19,7 @@
         - http
         - name: serverssl
           context: server-side
-      -  name: clientssl 
+        -  name: clientssl 
           context: client-side
       policies:
         - my-ltm-policy-for-asm
