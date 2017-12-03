@@ -17,6 +17,19 @@
    setup_pass: admin
 
   tasks:
+  - name: Create HA vlan
+    bigip_vlan:
+     name: "{{ ha_vlan }}"
+     user: "{{ setup_user }}"
+     password: "{{ setup_pass }}"
+     server: "{{ item }}"
+     validate_certs: False
+     untagged_interfaces: 1.1
+    delegate_to: localhost
+    with_items:
+     - "{{ bigip1_ip }}"
+     - "{{ bigip2_ip }}"
+
   - name: Configure SELF-IP for HA on the BIG-IP1
     bigip_selfip:
      server: "{{ bigip1_ip }}"
@@ -60,32 +73,6 @@
       commands:
       - mv cm device {{ bigip2_old_name }} {{ bigip2_new_name }}
     delegate_to: localhost
-
-#  - name: Create external vlan
-#    bigip_vlan
-#      name: "external"
-#      user: "{{ setup_user }}"
-#      password: "{{ setup_pass }}"
-#      server: "{{ item.server }}"
-#      validate_certs: False
-#    delegate_to: localhost
-#    with_items: 
-#      - server
-#        "{{ bigip1_ip }}"
-#        "{{ bigip2_ip }}"
-
-#  - name: Create internal vlan
-#    bigip_vlan
-#      name: "internal"
-#      user: "{{ setup_user }}"
-#      password: "{{ setup_pass }}"
-#      server: "{{ item.server }}"
-#      validate_certs: False
-#    delegate_to: localhost
-#    with_items:
-#     - server
-#       "{{ bigip1_ip }}"
-#       "{{ bigip2_ip }}"
 
   - name: Set config sync address on BIG-IP1
     bigip_command:
