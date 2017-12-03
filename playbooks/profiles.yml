@@ -16,11 +16,7 @@
       snat: Automap
       description: Test Virtual Server
       profiles:
-        - http
-        - name: serverssl
-          context: server-side
-        - name: clientssl 
-          context: client-side
+        - all_profiles
       policies:
         - all_policies
       enabled_vlans:
