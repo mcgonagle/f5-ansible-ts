@@ -28,5 +28,5 @@
         - ltm-policy-3
       enabled_vlans:
         - /Common/vlan10
-  delegate_to: localhost
+    delegate_to: localhost
 ...
