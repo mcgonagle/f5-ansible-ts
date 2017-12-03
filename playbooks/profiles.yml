@@ -1,0 +1,32 @@
+---
+- hosts: all
+  gather_facts: False
+  tasks:
+  - name: Add virtual server
+    bigip_virtual_server:
+      server: "{{ inventory_hostname }}" 
+      user: admin
+      password: admin
+      state: present
+      partition: Common
+      name: my-virtual-server
+      destination: 10.10.10.10
+      port: 443
+      pool: gray_pool1 
+      snat: Automap
+      description: Test Virtual Server
+      profiles:
+        - http
+        - name: serverssl
+          context: server-side
+      -  name: clientssl 
+          context: client-side
+      policies:
+        - my-ltm-policy-for-asm
+        - ltm-uri-policy
+        - ltm-policy-2
+        - ltm-policy-3
+      enabled_vlans:
+        - /Common/vlan10
+  delegate_to: localhost
+...
