@@ -6,10 +6,12 @@
     net_int_vlan_name: "internal"
     net_int_route_domain: "0"
     net_int_traffic_group: "traffic-group-local-only"
+    net_int_untagged_interface: 1.1
     net_ext_name: "external-self"
     net_ext_address: "10.1.20.10"
     net_ext_netmask: "255.255.255.0"
     net_ext_vlan_name: "external"
     net_ext_route_domain: "0"
     net_ext_traffic_group: "traffic-group-local-only"
+    net_ext_untagged_interface: 1.2
 ...

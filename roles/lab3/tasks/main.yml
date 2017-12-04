@@ -3,25 +3,26 @@
   vars:
     - key: "TNCDO-GRKLJ-HVWUT-XCGTD-EFJJFNQ"
 
-- include: bigip_vlan/add_untagged_vlan.yml 
-  vars:
-    - name: "external" 
-    - untagged_interface: "1.1"
-
-## bug - https://github.com/mcgonagle/ansible_f5/issues/17
-- include: bigip_selfip/add_selfip.yml 
-  vars:
-    - name: "10.0.1.10" 
-    - address: "10.0.1.10" 
-    - netmask: "255.255.255.0"
-    - vlan_name: "external" 
-    - route_domain: "0" 
-    - traffic_group: "traffic-group-local-only"
-
-- include: bigip_vlan/add_untagged_vlan.yml 
-  vars: 
-    - name: "internal" 
-    - untagged_interface: "1.2"
+#- include: bigip_vlan/add_untagged_vlan.yml 
+#  vars:
+#    - name: "external" 
+#    - untagged_interface: "1.1"
+#
+### bug - https://github.com/mcgonagle/ansible_f5/issues/17
+#- include: bigip_selfip/add_selfip.yml 
+#  vars:
+#    - name: "10.0.1.10" 
+#    - address: "10.0.1.10" 
+#    - netmask: "255.255.255.0"
+#    - vlan_name: "external" 
+#    - route_domain: "0" 
+#    - traffic_group: "traffic-group-local-only"
+#
+#- include: bigip_vlan/add_untagged_vlan.yml 
+#  vars: 
+#    - name: "internal" 
+#    - untagged_interface: "1.2"
+- include: add_untagged_vlan_int_ext.yml
 
 ## bug - https://github.com/mcgonagle/ansible_f5/issues/17
 - include: bigip_selfip/add_selfip.yml 
