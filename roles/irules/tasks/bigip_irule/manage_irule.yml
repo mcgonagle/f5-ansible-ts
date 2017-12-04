@@ -1,0 +1,13 @@
+---
+- name: Manage the iRule contained in the template file rewrite.tcl 
+  bigip_irule:
+    name: "Rewrite"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    module: "ltm"
+    content: "{{ lookup('template', 'irules/rewrite.tcl') }}"
+    validate_certs: "false"
+    state: "{{ state }}"
+  delegate_to: localhost
+...
