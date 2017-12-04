@@ -19,5 +19,6 @@
         - http
       enabled_vlans:
         - /Common/vlan10
+      validate_certs: "no"
     delegate_to: localhost
 ...
