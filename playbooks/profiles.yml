@@ -11,14 +11,12 @@
       partition: Common
       name: my-virtual-server
       destination: 10.10.10.10
-      port: 443
+      port: 80
       pool: gray_pool1 
       snat: Automap
       description: Test Virtual Server
       all_profiles:
-        - all_profiles
-      all_policies:
-        - all_policies
+        - http
       enabled_vlans:
         - /Common/vlan10
     delegate_to: localhost
