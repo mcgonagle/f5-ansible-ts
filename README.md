@@ -76,6 +76,10 @@ set cc=
 [Ansible Variables and their Precedence](docs/VARIABLES.md)
 
 ./run_ansbile -v
+
+## iRules with variable Templating
+
+## App SVCS iApp with variable Templating
 ## License
 ### GNU LESSER GENERAL PUBLIC LICENSE 
 ### Version 3, 29 June 2007
