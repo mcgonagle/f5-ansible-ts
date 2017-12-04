@@ -15,9 +15,9 @@
       pool: gray_pool1 
       snat: Automap
       description: Test Virtual Server
-      profiles:
+      all_profiles:
         - all_profiles
-      policies:
+      all_policies:
         - all_policies
       enabled_vlans:
         - /Common/vlan10
