@@ -1,0 +1,4 @@
+---
+pool_member_ipaddress: "192.168.1.140"
+pool_member_port: "80"
+...

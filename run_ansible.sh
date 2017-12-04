@@ -21,9 +21,14 @@ while test $# -gt 0; do
                         ansible-playbook playbooks/ip_vlan.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
-                --ir*)
+                --irule*)
                         shift
                         ansible-playbook playbooks/irules.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
+                        shift
+                        ;;
+                --iapp*)
+                        shift
+                        ansible-playbook playbooks/iapp.yml --ask-vault-pass -e @password.yml -e state="present" -vvv 
                         shift
                         ;;
                 -1)
