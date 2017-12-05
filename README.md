@@ -79,6 +79,16 @@ set cc=
 
 ## iRules with variable Templating
 
+./run_ansible --irule
+
+## iApps with variable Templating
+
+./run_ansible --iapp
+
+## HA Demo
+
+ansible-playbook playbooks/create_HA.yml --ask-vault-pass -e @password.yml -vvv
+
 ## App SVCS iApp with variable Templating
 ## License
 ### GNU LESSER GENERAL PUBLIC LICENSE 
