@@ -1,4 +1,19 @@
----
+--
 internal_vlan_ip: "10.1.10.10"
 external_vlan_ip: "10.1.20.10"
+sys_hostname: "bigip1.lab.fqdn"
+net_int_name: "internal-self"
+net_int_address: "10.1.10.10"
+net_int_netmask: "255.255.255.0"
+net_int_vlan_name: "internal"
+net_int_route_domain: "0"
+net_int_traffic_group: "traffic-group-local-only"
+net_int_untagged_interface: 1.1
+net_ext_name: "external-self"
+net_ext_address: "10.1.20.10"
+net_ext_netmask: "255.255.255.0"
+net_ext_vlan_name: "external"
+net_ext_route_domain: "0"
+net_ext_traffic_group: "traffic-group-local-only"
+net_ext_untagged_interface: 1.2
 ...

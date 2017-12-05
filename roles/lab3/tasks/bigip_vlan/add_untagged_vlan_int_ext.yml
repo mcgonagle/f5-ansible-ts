@@ -1,0 +1,23 @@
+---
+- name: Add external untagged VLAN to interface "{{ net_ext_untagged_interface }}" 
+  bigip_vlan:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    name: "{{ net_ext_vlan_name }}"
+    untagged_interface: "{{ net_ext_untagged_interface }}" 
+    state: "present"
+    validate_certs: "no"
+  delegate_to: localhost
+  
+- name: Add internal untagged VLAN to interface "{{ net_int_untagged_interface }}" 
+  bigip_vlan:
+    user: "{{ username }}"
+    password: "{{ password }}"
+    server: "{{ inventory_hostname }}"
+    name: "{{ net_int_vlan_name }}"
+    untagged_interface: "{{ net_int_untagged_interface }}" 
+    state: "present"
+    validate_certs: "no"
+  delegate_to: localhost
+...

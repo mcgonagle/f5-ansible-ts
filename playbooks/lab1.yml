@@ -15,14 +15,14 @@
     vip_snat: "Automap"
     vip_all_profiles: "http"
     state: "present"
- 
+
   tasks:
   - name: Add a new node
     bigip_node:
       server: "{{ inventory_hostname }}"
       user: "{{ username }}"
       password: "{{ password }}"
-      host: "{{ node_host  }}"
+      host: "{{ node_host }}"
       name: "{{ node_name }}"
       validate_certs: "false"
       state: "{{ state }}"
