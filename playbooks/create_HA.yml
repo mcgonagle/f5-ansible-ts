@@ -12,7 +12,7 @@
    bigip2_new_name: f5-bigip2.home.com
    bigip1_selfip: 10.1.10.10
    bigip2_selfip: 10.1.10.11
-   ha_vlan: HA_vlan
+   ha_vlan: vlan10 
    setup_user: admin
    setup_pass: admin
 
